@@ -1,25 +1,26 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-mvc for the canonical source repository
- * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-mvc/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminasframwork/laminas-mvc for the canonical source repository
+ * @copyright https://github.com/laminasframwork/laminas-mvc/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminasframwork/laminas-mvc/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
 
-namespace ZendTest\Mvc;
+namespace LaminasTest\Mvc;
 
+use Laminas\EventManager\EventManager;
+use Laminas\Http\PhpEnvironment\Request;
+use Laminas\Mvc\ModuleRouteListener;
+use Laminas\Mvc\MvcEvent;
+use Laminas\Mvc\RouteListener;
+use Laminas\Router;
+use Laminas\Router\RouteMatch;
 use PHPUnit\Framework\TestCase;
-use Zend\EventManager\EventManager;
-use Zend\Http\PhpEnvironment\Request;
-use Zend\Mvc\ModuleRouteListener;
-use Zend\Mvc\MvcEvent;
-use Zend\Mvc\RouteListener;
-use Zend\Router;
-use Zend\Router\RouteMatch;
 
 /**
- * @covers \Zend\Mvc\ModuleRouteListener
+ * @covers \Laminas\Mvc\ModuleRouteListener
  */
 class ModuleRouteListenerTest extends TestCase
 {

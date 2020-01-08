@@ -1,19 +1,20 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-mvc for the canonical source repository
- * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-mvc/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminasframwork/laminas-mvc for the canonical source repository
+ * @copyright https://github.com/laminasframwork/laminas-mvc/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminasframwork/laminas-mvc/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
 
-namespace ZendTest\Mvc\ResponseSender;
+namespace LaminasTest\Mvc\ResponseSender;
 
+use Laminas\Http\Response;
+use Laminas\Mvc\ResponseSender;
+use Laminas\Mvc\ResponseSender\SimpleStreamResponseSender;
+use Laminas\Stdlib;
 use PHPUnit\Framework\TestCase;
-use Zend\Http\Response;
-use Zend\Mvc\ResponseSender;
-use Zend\Mvc\ResponseSender\SimpleStreamResponseSender;
-use Zend\Stdlib;
 
 use function file_get_contents;
 use function fopen;
@@ -21,7 +22,7 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
- * @covers \Zend\Mvc\ResponseSender\SimpleStreamResponseSender
+ * @covers \Laminas\Mvc\ResponseSender\SimpleStreamResponseSender
  */
 class SimpleStreamResponseSenderTest extends TestCase
 {

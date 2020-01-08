@@ -1,19 +1,20 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-mvc for the canonical source repository
- * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-mvc/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminasframwork/laminas-mvc for the canonical source repository
+ * @copyright https://github.com/laminasframwork/laminas-mvc/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminasframwork/laminas-mvc/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
 
-namespace ZendTest\Mvc\Service;
+namespace LaminasTest\Mvc\Service;
 
 use Interop\Container\ContainerInterface;
+use Laminas\Mvc\Service\ViewJsonStrategyFactory;
+use Laminas\View\Renderer\JsonRenderer;
+use Laminas\View\Strategy\JsonStrategy;
 use PHPUnit\Framework\TestCase;
-use Zend\Mvc\Service\ViewJsonStrategyFactory;
-use Zend\View\Renderer\JsonRenderer;
-use Zend\View\Strategy\JsonStrategy;
 
 class ViewJsonStrategyFactoryTest extends TestCase
 {

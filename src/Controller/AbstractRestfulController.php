@@ -1,21 +1,22 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-mvc for the canonical source repository
- * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-mvc/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminasframwork/laminas-mvc for the canonical source repository
+ * @copyright https://github.com/laminasframwork/laminas-mvc/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminasframwork/laminas-mvc/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
 
-namespace Zend\Mvc\Controller;
+namespace Laminas\Mvc\Controller;
 
-use Zend\Http\Request as HttpRequest;
-use Zend\Json\Json;
-use Zend\Mvc\Exception;
-use Zend\Mvc\MvcEvent;
-use Zend\Router\RouteMatch;
-use Zend\Stdlib\RequestInterface as Request;
-use Zend\Stdlib\ResponseInterface as Response;
+use Laminas\Http\Request as HttpRequest;
+use Laminas\Json\Json;
+use Laminas\Mvc\Exception;
+use Laminas\Mvc\MvcEvent;
+use Laminas\Router\RouteMatch;
+use Laminas\Stdlib\RequestInterface as Request;
+use Laminas\Stdlib\ResponseInterface as Response;
 
 use function array_key_exists;
 use function array_shift;
@@ -63,13 +64,13 @@ abstract class AbstractRestfulController extends AbstractController
     protected $identifierName = 'id';
 
     /**
-     * Flag to pass to json_decode and/or Zend\Json\Json::decode.
+     * Flag to pass to json_decode and/or Laminas\Json\Json::decode.
      *
-     * The flags in Zend\Json\Json::decode are integers, but when evaluated
+     * The flags in Laminas\Json\Json::decode are integers, but when evaluated
      * in a boolean context map to the flag passed as the second parameter
-     * to json_decode(). As such, you can specify either the Zend\Json\Json
+     * to json_decode(). As such, you can specify either the Laminas\Json\Json
      * constant or the boolean value. By default, starting in v3, we use
-     * the boolean value, and cast to integer if using Zend\Json\Json::decode.
+     * the boolean value, and cast to integer if using Laminas\Json\Json::decode.
      *
      * Default value is boolean true, meaning JSON should be cast to
      * associative arrays (vs objects).
@@ -613,7 +614,7 @@ abstract class AbstractRestfulController extends AbstractController
      * Decode a JSON string.
      *
      * Uses json_decode by default. If that is not available, checks for
-     * availability of Zend\Json\Json, and uses that if present.
+     * availability of Laminas\Json\Json, and uses that if present.
      *
      * Otherwise, raises an exception.
      *

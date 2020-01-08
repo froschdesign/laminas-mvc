@@ -1,10 +1,11 @@
 .phpunit.result.cache
 /.phpcs-cache
 /clover.xml
+/composer.lock
 /coveralls-upload.json
 /docs/html/
+/laminas-mkdoc-theme.tgz
+/laminas-mkdoc-theme/
 /phpstan.neon
 /phpunit.xml
 /vendor/
-/zf-mkdoc-theme.tgz
-/zf-mkdoc-theme/

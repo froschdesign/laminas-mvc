@@ -1,32 +1,33 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-mvc for the canonical source repository
- * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-mvc/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminasframwork/laminas-mvc for the canonical source repository
+ * @copyright https://github.com/laminasframwork/laminas-mvc/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminasframwork/laminas-mvc/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
 
-namespace ZendTest\Mvc;
+namespace LaminasTest\Mvc;
 
+use Laminas\EventManager\EventManager;
+use Laminas\Http\Request;
+use Laminas\Http\Response;
+use Laminas\Mvc\Application;
+use Laminas\Mvc\Controller\ControllerManager;
+use Laminas\Mvc\DispatchListener;
+use Laminas\Mvc\MvcEvent;
+use Laminas\Router\RouteMatch;
+use Laminas\ServiceManager\ServiceManager;
+use Laminas\Stdlib\ResponseInterface;
+use Laminas\View\Model\ModelInterface;
 use PHPUnit\Framework\TestCase;
 use stdClass;
-use Zend\EventManager\EventManager;
-use Zend\Http\Request;
-use Zend\Http\Response;
-use Zend\Mvc\Application;
-use Zend\Mvc\Controller\ControllerManager;
-use Zend\Mvc\DispatchListener;
-use Zend\Mvc\MvcEvent;
-use Zend\Router\RouteMatch;
-use Zend\ServiceManager\ServiceManager;
-use Zend\Stdlib\ResponseInterface;
-use Zend\View\Model\ModelInterface;
 
 use function var_export;
 
 /**
- * @covers \Zend\Mvc\DispatchListener
+ * @covers \Laminas\Mvc\DispatchListener
  */
 class DispatchListenerTest extends TestCase
 {

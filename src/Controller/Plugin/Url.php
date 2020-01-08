@@ -1,23 +1,24 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-mvc for the canonical source repository
- * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-mvc/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminasframwork/laminas-mvc for the canonical source repository
+ * @copyright https://github.com/laminasframwork/laminas-mvc/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminasframwork/laminas-mvc/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
 
-namespace Zend\Mvc\Controller\Plugin;
+namespace Laminas\Mvc\Controller\Plugin;
 
+use Laminas\EventManager\EventInterface;
+use Laminas\Mvc\Exception\DomainException;
+use Laminas\Mvc\Exception\InvalidArgumentException;
+use Laminas\Mvc\Exception\RuntimeException;
+use Laminas\Mvc\InjectApplicationEventInterface;
+use Laminas\Mvc\ModuleRouteListener;
+use Laminas\Mvc\MvcEvent;
+use Laminas\Router\RouteStackInterface;
 use Traversable;
-use Zend\EventManager\EventInterface;
-use Zend\Mvc\Exception\DomainException;
-use Zend\Mvc\Exception\InvalidArgumentException;
-use Zend\Mvc\Exception\RuntimeException;
-use Zend\Mvc\InjectApplicationEventInterface;
-use Zend\Mvc\ModuleRouteListener;
-use Zend\Mvc\MvcEvent;
-use Zend\Router\RouteStackInterface;
 
 use function array_merge;
 use function func_num_args;

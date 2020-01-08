@@ -1,41 +1,42 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-mvc for the canonical source repository
- * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-mvc/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminasframwork/laminas-mvc for the canonical source repository
+ * @copyright https://github.com/laminasframwork/laminas-mvc/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminasframwork/laminas-mvc/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
 
-namespace ZendTest\Mvc\Controller\Plugin;
+namespace LaminasTest\Mvc\Controller\Plugin;
 
+use Laminas\EventManager\EventManager;
+use Laminas\EventManager\SharedEventManager;
+use Laminas\EventManager\SharedEventManagerInterface;
+use Laminas\Http\Request;
+use Laminas\Http\Response;
+use Laminas\Mvc\ApplicationInterface;
+use Laminas\Mvc\Controller\ControllerManager;
+use Laminas\Mvc\Controller\Plugin\Forward;
+use Laminas\Mvc\Controller\Plugin\Forward as ForwardPlugin;
+use Laminas\Mvc\Controller\PluginManager;
+use Laminas\Mvc\Exception\DomainException;
+use Laminas\Mvc\MvcEvent;
+use Laminas\Router\RouteMatch;
+use Laminas\ServiceManager\Config;
+use Laminas\ServiceManager\Exception\InvalidServiceException;
+use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
+use Laminas\ServiceManager\ServiceManager;
+use Laminas\Stdlib\DispatchableInterface;
+use LaminasTest\Mvc\Controller\Plugin\TestAsset\ListenerStub;
+use LaminasTest\Mvc\Controller\TestAsset\ForwardController;
+use LaminasTest\Mvc\Controller\TestAsset\SampleController;
+use LaminasTest\Mvc\Controller\TestAsset\UneventfulController;
 use PHPUnit\Framework\TestCase;
 use stdClass;
-use Zend\EventManager\EventManager;
-use Zend\EventManager\SharedEventManager;
-use Zend\EventManager\SharedEventManagerInterface;
-use Zend\Http\Request;
-use Zend\Http\Response;
-use Zend\Mvc\ApplicationInterface;
-use Zend\Mvc\Controller\ControllerManager;
-use Zend\Mvc\Controller\Plugin\Forward;
-use Zend\Mvc\Controller\Plugin\Forward as ForwardPlugin;
-use Zend\Mvc\Controller\PluginManager;
-use Zend\Mvc\Exception\DomainException;
-use Zend\Mvc\MvcEvent;
-use Zend\Router\RouteMatch;
-use Zend\ServiceManager\Config;
-use Zend\ServiceManager\Exception\InvalidServiceException;
-use Zend\ServiceManager\Exception\ServiceNotCreatedException;
-use Zend\ServiceManager\ServiceManager;
-use Zend\Stdlib\DispatchableInterface;
-use ZendTest\Mvc\Controller\Plugin\TestAsset\ListenerStub;
-use ZendTest\Mvc\Controller\TestAsset\ForwardController;
-use ZendTest\Mvc\Controller\TestAsset\SampleController;
-use ZendTest\Mvc\Controller\TestAsset\UneventfulController;
 
 /**
- * @covers \Zend\Mvc\Controller\Plugin\Forward
+ * @covers \Laminas\Mvc\Controller\Plugin\Forward
  */
 class ForwardTest extends TestCase
 {
@@ -205,7 +206,7 @@ class ForwardTest extends TestCase
     {
         $result = $this->plugin->dispatch('forward');
         $this->assertIsArray($result);
-        $this->assertEquals(['content' => 'ZendTest\Mvc\Controller\TestAsset\ForwardController::testAction'], $result);
+        $this->assertEquals(['content' => 'LaminasTest\Mvc\Controller\TestAsset\ForwardController::testAction'], $result);
     }
 
     /**
@@ -229,7 +230,7 @@ class ForwardTest extends TestCase
 
         $result = $this->plugin->dispatch('forward');
         $this->assertIsArray($result);
-        $this->assertEquals(['content' => 'ZendTest\Mvc\Controller\TestAsset\ForwardController::testAction'], $result);
+        $this->assertEquals(['content' => 'LaminasTest\Mvc\Controller\TestAsset\ForwardController::testAction'], $result);
     }
 
     public function testProblemListenersAreDetachedAndReattachedWhenPluginDispatchesRequestedController()

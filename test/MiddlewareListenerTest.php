@@ -1,37 +1,38 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-mvc for the canonical source repository
- * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-mvc/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminasframwork/laminas-mvc for the canonical source repository
+ * @copyright https://github.com/laminasframwork/laminas-mvc/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminasframwork/laminas-mvc/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
 
-namespace ZendTest\Mvc;
+namespace LaminasTest\Mvc;
 
 use Exception;
 use Interop\Container\ContainerInterface;
 use Interop\Http\ServerMiddleware\MiddlewareInterface;
+use Laminas\Diactoros\Response as DiactorosResponse;
+use Laminas\Diactoros\Response\HtmlResponse;
+use Laminas\EventManager\EventManager;
+use Laminas\EventManager\SharedEventManager;
+use Laminas\Http\Request;
+use Laminas\Http\Response;
+use Laminas\Mvc\Application;
+use Laminas\Mvc\Exception\InvalidMiddlewareException;
+use Laminas\Mvc\Exception\ReachedFinalHandlerException;
+use Laminas\Mvc\MiddlewareListener;
+use Laminas\Mvc\MvcEvent;
+use Laminas\Router\RouteMatch;
+use Laminas\ServiceManager\ServiceManager;
+use Laminas\Stdlib\DispatchableInterface;
+use Laminas\View\Model\ModelInterface;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Prophecy\ObjectProphecy;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use stdClass;
-use Zend\Diactoros\Response as DiactorosResponse;
-use Zend\Diactoros\Response\HtmlResponse;
-use Zend\EventManager\EventManager;
-use Zend\EventManager\SharedEventManager;
-use Zend\Http\Request;
-use Zend\Http\Response;
-use Zend\Mvc\Application;
-use Zend\Mvc\Exception\InvalidMiddlewareException;
-use Zend\Mvc\Exception\ReachedFinalHandlerException;
-use Zend\Mvc\MiddlewareListener;
-use Zend\Mvc\MvcEvent;
-use Zend\Router\RouteMatch;
-use Zend\ServiceManager\ServiceManager;
-use Zend\Stdlib\DispatchableInterface;
-use Zend\View\Model\ModelInterface;
 
 use function is_callable;
 use function sprintf;
@@ -39,7 +40,7 @@ use function uniqid;
 use function var_export;
 
 /**
- * @covers \Zend\Mvc\MiddlewareListener
+ * @covers \Laminas\Mvc\MiddlewareListener
  */
 class MiddlewareListenerTest extends TestCase
 {

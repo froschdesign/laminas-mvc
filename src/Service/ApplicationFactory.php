@@ -1,24 +1,25 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-mvc for the canonical source repository
- * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-mvc/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminasframwork/laminas-mvc for the canonical source repository
+ * @copyright https://github.com/laminasframwork/laminas-mvc/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminasframwork/laminas-mvc/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
 
-namespace Zend\Mvc\Service;
+namespace Laminas\Mvc\Service;
 
 use Interop\Container\ContainerInterface;
-use Zend\Mvc\Application;
-use Zend\ServiceManager\Factory\FactoryInterface;
+use Laminas\Mvc\Application;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 
 class ApplicationFactory implements FactoryInterface
 {
     /**
      * Create the Application service
      *
-     * Creates a Zend\Mvc\Application service, passing it the configuration
+     * Creates a Laminas\Mvc\Application service, passing it the configuration
      * service and the service manager instance.
      *
      * @param  ContainerInterface $container

@@ -1,18 +1,19 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-mvc for the canonical source repository
- * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-mvc/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminasframwork/laminas-mvc for the canonical source repository
+ * @copyright https://github.com/laminasframwork/laminas-mvc/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminasframwork/laminas-mvc/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
 
-namespace Zend\Mvc\Controller\Plugin;
+namespace Laminas\Mvc\Controller\Plugin;
 
 use ArrayAccess;
-use Zend\Http\Header\HeaderInterface;
-use Zend\Mvc\Exception\RuntimeException;
-use Zend\Mvc\InjectApplicationEventInterface;
+use Laminas\Http\Header\HeaderInterface;
+use Laminas\Mvc\Exception\RuntimeException;
+use Laminas\Mvc\InjectApplicationEventInterface;
 
 class Params extends AbstractPlugin
 {
@@ -109,7 +110,7 @@ class Params extends AbstractPlugin
 
         if (! $controller instanceof InjectApplicationEventInterface) {
             throw new RuntimeException(
-                'Controllers must implement Zend\Mvc\InjectApplicationEventInterface to use this plugin.'
+                'Controllers must implement Laminas\Mvc\InjectApplicationEventInterface to use this plugin.'
             );
         }
 

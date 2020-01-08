@@ -1,23 +1,24 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-mvc for the canonical source repository
- * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-mvc/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminasframwork/laminas-mvc for the canonical source repository
+ * @copyright https://github.com/laminasframwork/laminas-mvc/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminasframwork/laminas-mvc/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
 
-namespace ZendTest\Mvc\Controller\Plugin;
+namespace LaminasTest\Mvc\Controller\Plugin;
 
+use Laminas\Mvc\Controller\Plugin\Layout as LayoutPlugin;
+use Laminas\Mvc\Exception\DomainException;
+use Laminas\Mvc\MvcEvent;
+use Laminas\View\Model\ViewModel;
+use LaminasTest\Mvc\Controller\TestAsset\SampleController;
 use PHPUnit\Framework\TestCase;
-use Zend\Mvc\Controller\Plugin\Layout as LayoutPlugin;
-use Zend\Mvc\Exception\DomainException;
-use Zend\Mvc\MvcEvent;
-use Zend\View\Model\ViewModel;
-use ZendTest\Mvc\Controller\TestAsset\SampleController;
 
 /**
- * @covers \Zend\Mvc\Controller\Plugin\Layout
+ * @covers \Laminas\Mvc\Controller\Plugin\Layout
  */
 class LayoutTest extends TestCase
 {

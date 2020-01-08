@@ -1,26 +1,27 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-mvc for the canonical source repository
- * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-mvc/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminasframwork/laminas-mvc for the canonical source repository
+ * @copyright https://github.com/laminasframwork/laminas-mvc/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminasframwork/laminas-mvc/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
 
-namespace ZendTest\Mvc\View;
+namespace LaminasTest\Mvc\View;
 
+use Laminas\EventManager\EventManager;
+use Laminas\EventManager\Test\EventListenerIntrospectionTrait;
+use Laminas\Mvc\MvcEvent;
+use Laminas\Mvc\View\Http\InjectViewModelListener;
+use Laminas\Router\RouteMatch;
+use Laminas\View\Model\ViewModel;
 use PHPUnit\Framework\TestCase;
-use Zend\EventManager\EventManager;
-use Zend\EventManager\Test\EventListenerIntrospectionTrait;
-use Zend\Mvc\MvcEvent;
-use Zend\Mvc\View\Http\InjectViewModelListener;
-use Zend\Router\RouteMatch;
-use Zend\View\Model\ViewModel;
 
 use function count;
 
 /**
- * @covers \Zend\Mvc\View\Http\InjectViewModelListener
+ * @covers \Laminas\Mvc\View\Http\InjectViewModelListener
  */
 class InjectViewModelListenerTest extends TestCase
 {

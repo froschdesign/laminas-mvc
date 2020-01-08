@@ -1,18 +1,19 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-mvc for the canonical source repository
- * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-mvc/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminasframwork/laminas-mvc for the canonical source repository
+ * @copyright https://github.com/laminasframwork/laminas-mvc/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminasframwork/laminas-mvc/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
 
-namespace ZendTest\Mvc\Controller\TestAsset;
+namespace LaminasTest\Mvc\Controller\TestAsset;
 
 use Traversable;
-use Zend\Http\Response;
-use Zend\Mvc\Controller\AbstractRestfulController;
-use Zend\Stdlib\ResponseInterface;
+use Laminas\Http\Response;
+use Laminas\Mvc\Controller\AbstractRestfulController;
+use Laminas\Stdlib\ResponseInterface;
 
 use function array_merge;
 use function is_array;
@@ -102,7 +103,7 @@ class RestfulTestController extends AbstractRestfulController
     public function head($id = null)
     {
         if ($id) {
-            $this->getResponse()->getHeaders()->addHeaderLine('X-ZF2-Id', $id);
+            $this->getResponse()->getHeaders()->addHeaderLine('X-Laminas-Id', $id);
         }
 
         if ($this->headResponse) {

@@ -1,25 +1,26 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-mvc for the canonical source repository
- * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-mvc/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminasframwork/laminas-mvc for the canonical source repository
+ * @copyright https://github.com/laminasframwork/laminas-mvc/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminasframwork/laminas-mvc/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
 
-namespace ZendTest\Mvc;
+namespace LaminasTest\Mvc;
 
+use Laminas\EventManager\EventManagerInterface;
+use Laminas\Http\Request as HttpRequest;
+use Laminas\Http\Response as HttpResponse;
+use Laminas\Mvc\HttpMethodListener;
+use Laminas\Mvc\MvcEvent;
+use Laminas\Stdlib\Request;
+use Laminas\Stdlib\Response;
 use PHPUnit\Framework\TestCase;
-use Zend\EventManager\EventManagerInterface;
-use Zend\Http\Request as HttpRequest;
-use Zend\Http\Response as HttpResponse;
-use Zend\Mvc\HttpMethodListener;
-use Zend\Mvc\MvcEvent;
-use Zend\Stdlib\Request;
-use Zend\Stdlib\Response;
 
 /**
- * @covers \Zend\Mvc\HttpMethodListener
+ * @covers \Laminas\Mvc\HttpMethodListener
  */
 class HttpMethodListenerTest extends TestCase
 {

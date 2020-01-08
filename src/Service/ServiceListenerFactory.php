@@ -1,36 +1,37 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-mvc for the canonical source repository
- * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-mvc/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminasframwork/laminas-mvc for the canonical source repository
+ * @copyright https://github.com/laminasframwork/laminas-mvc/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminasframwork/laminas-mvc/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
 
-namespace Zend\Mvc\Service;
+namespace Laminas\Mvc\Service;
 
 use Interop\Container\ContainerInterface;
-use Zend\ModuleManager\Listener\ServiceListener;
-use Zend\ModuleManager\Listener\ServiceListenerInterface;
-use Zend\Mvc\Controller\PluginManager;
-use Zend\Mvc\MiddlewareListener;
-use Zend\Mvc\RouteListener;
-use Zend\Mvc\SendResponseListener;
-use Zend\Mvc\View\Http\DefaultRenderingStrategy;
-use Zend\Mvc\View\Http\InjectTemplateListener;
-use Zend\ServiceManager\Exception\ServiceNotCreatedException;
-use Zend\ServiceManager\Factory\FactoryInterface;
-use Zend\ServiceManager\Factory\InvokableFactory;
-use Zend\View\Renderer\FeedRenderer;
-use Zend\View\Renderer\JsonRenderer;
-use Zend\View\Renderer\PhpRenderer;
-use Zend\View\Renderer\RendererInterface;
-use Zend\View\Resolver\AggregateResolver;
-use Zend\View\Resolver\ResolverInterface;
-use Zend\View\Resolver\TemplateMapResolver;
-use Zend\View\Resolver\TemplatePathStack;
-use Zend\View\Strategy\PhpRendererStrategy;
-use Zend\View\View;
+use Laminas\ModuleManager\Listener\ServiceListener;
+use Laminas\ModuleManager\Listener\ServiceListenerInterface;
+use Laminas\Mvc\Controller\PluginManager;
+use Laminas\Mvc\MiddlewareListener;
+use Laminas\Mvc\RouteListener;
+use Laminas\Mvc\SendResponseListener;
+use Laminas\Mvc\View\Http\DefaultRenderingStrategy;
+use Laminas\Mvc\View\Http\InjectTemplateListener;
+use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
+use Laminas\ServiceManager\Factory\FactoryInterface;
+use Laminas\ServiceManager\Factory\InvokableFactory;
+use Laminas\View\Renderer\FeedRenderer;
+use Laminas\View\Renderer\JsonRenderer;
+use Laminas\View\Renderer\PhpRenderer;
+use Laminas\View\Renderer\RendererInterface;
+use Laminas\View\Resolver\AggregateResolver;
+use Laminas\View\Resolver\ResolverInterface;
+use Laminas\View\Resolver\TemplateMapResolver;
+use Laminas\View\Resolver\TemplatePathStack;
+use Laminas\View\Strategy\PhpRendererStrategy;
+use Laminas\View\View;
 
 use function get_class;
 use function gettype;

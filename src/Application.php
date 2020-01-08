@@ -1,19 +1,20 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-mvc for the canonical source repository
- * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-mvc/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminasframwork/laminas-mvc for the canonical source repository
+ * @copyright https://github.com/laminasframwork/laminas-mvc/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminasframwork/laminas-mvc/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
 
-namespace Zend\Mvc;
+namespace Laminas\Mvc;
 
-use Zend\EventManager\EventManagerAwareInterface;
-use Zend\EventManager\EventManagerInterface;
-use Zend\ServiceManager\ServiceManager;
-use Zend\Stdlib\RequestInterface;
-use Zend\Stdlib\ResponseInterface;
+use Laminas\EventManager\EventManagerAwareInterface;
+use Laminas\EventManager\EventManagerInterface;
+use Laminas\ServiceManager\ServiceManager;
+use Laminas\Stdlib\RequestInterface;
+use Laminas\Stdlib\ResponseInterface;
 
 use function array_merge;
 use function array_unique;
@@ -36,7 +37,7 @@ use function array_unique;
  *
  * The most common workflow is:
  * <code>
- * $services = new Zend\ServiceManager\ServiceManager($servicesConfig);
+ * $services = new Laminas\ServiceManager\ServiceManager($servicesConfig);
  * $app      = new Application($appConfig, $services);
  * $app->bootstrap();
  * $response = $app->run();
@@ -237,7 +238,7 @@ class Application implements
      *
      * - ModuleManager
      * - SharedEventManager
-     * - EventManager & Zend\EventManager\EventManagerInterface
+     * - EventManager & Laminas\EventManager\EventManagerInterface
      *
      * All other services are configured after module loading, thus can be
      * overridden by modules.

@@ -1,23 +1,24 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-mvc for the canonical source repository
- * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-mvc/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminasframwork/laminas-mvc for the canonical source repository
+ * @copyright https://github.com/laminasframwork/laminas-mvc/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminasframwork/laminas-mvc/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
 
-namespace Zend\Mvc\Controller\Plugin;
+namespace Laminas\Mvc\Controller\Plugin;
 
+use Laminas\EventManager\SharedEventManagerInterface as SharedEvents;
+use Laminas\Mvc\Controller\ControllerManager;
+use Laminas\Mvc\Exception;
+use Laminas\Mvc\InjectApplicationEventInterface;
+use Laminas\Mvc\MvcEvent;
+use Laminas\Mvc\View\Http\InjectViewModelListener;
+use Laminas\Router\RouteMatch;
+use Laminas\Stdlib\DispatchableInterface;
 use Traversable;
-use Zend\EventManager\SharedEventManagerInterface as SharedEvents;
-use Zend\Mvc\Controller\ControllerManager;
-use Zend\Mvc\Exception;
-use Zend\Mvc\InjectApplicationEventInterface;
-use Zend\Mvc\MvcEvent;
-use Zend\Mvc\View\Http\InjectViewModelListener;
-use Zend\Router\RouteMatch;
-use Zend\Stdlib\DispatchableInterface;
 
 use function array_shift;
 use function get_class;
@@ -268,7 +269,7 @@ class Forward extends AbstractPlugin
     /**
      * Retrieve shared listeners for an event by identifier.
      *
-     * Varies retrieval based on zend-eventmanager version.
+     * Varies retrieval based on laminas-eventmanager version.
      *
      * @param string|int   $id
      * @param string       $event
@@ -283,7 +284,7 @@ class Forward extends AbstractPlugin
     /**
      * Detach a shared listener by identifier.
      *
-     * Varies detachment based on zend-eventmanager version.
+     * Varies detachment based on laminas-eventmanager version.
      *
      * @param string|int   $id
      * @param callable     $listener

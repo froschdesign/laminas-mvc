@@ -1,24 +1,25 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-mvc for the canonical source repository
- * @copyright Copyright (c) 2005-2019 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-mvc/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminasframwork/laminas-mvc for the canonical source repository
+ * @copyright https://github.com/laminasframwork/laminas-mvc/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminasframwork/laminas-mvc/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
 
-namespace Zend\Mvc\View\Http;
+namespace Laminas\Mvc\View\Http;
 
 use ArrayAccess;
+use Laminas\EventManager\AbstractListenerAggregate;
+use Laminas\EventManager\EventManagerInterface;
+use Laminas\EventManager\ListenerAggregateInterface;
+use Laminas\Mvc\MvcEvent;
+use Laminas\ServiceManager\ServiceManager;
+use Laminas\Stdlib\DispatchableInterface;
+use Laminas\View\Model\ModelInterface;
+use Laminas\View\View;
 use Traversable;
-use Zend\EventManager\AbstractListenerAggregate;
-use Zend\EventManager\EventManagerInterface;
-use Zend\EventManager\ListenerAggregateInterface;
-use Zend\Mvc\MvcEvent;
-use Zend\ServiceManager\ServiceManager;
-use Zend\Stdlib\DispatchableInterface;
-use Zend\View\Model\ModelInterface;
-use Zend\View\View;
 
 use function is_array;
 use function is_string;
@@ -33,16 +34,16 @@ use function is_string;
  *
  * Defines and manages the following services:
  *
- * - ViewHelperManager (also aliased to Zend\View\HelperPluginManager)
- * - ViewTemplateMapResolver (also aliased to Zend\View\Resolver\TemplateMapResolver)
- * - ViewTemplatePathStack (also aliased to Zend\View\Resolver\TemplatePathStack)
- * - ViewResolver (also aliased to Zend\View\Resolver\AggregateResolver and ResolverInterface)
- * - ViewRenderer (also aliased to Zend\View\Renderer\PhpRenderer and RendererInterface)
- * - ViewPhpRendererStrategy (also aliased to Zend\View\Strategy\PhpRendererStrategy)
- * - View (also aliased to Zend\View\View)
- * - DefaultRenderingStrategy (also aliased to Zend\Mvc\View\Http\DefaultRenderingStrategy)
- * - ExceptionStrategy (also aliased to Zend\Mvc\View\Http\ExceptionStrategy)
- * - RouteNotFoundStrategy (also aliased to Zend\Mvc\View\Http\RouteNotFoundStrategy and 404Strategy)
+ * - ViewHelperManager (also aliased to Laminas\View\HelperPluginManager)
+ * - ViewTemplateMapResolver (also aliased to Laminas\View\Resolver\TemplateMapResolver)
+ * - ViewTemplatePathStack (also aliased to Laminas\View\Resolver\TemplatePathStack)
+ * - ViewResolver (also aliased to Laminas\View\Resolver\AggregateResolver and ResolverInterface)
+ * - ViewRenderer (also aliased to Laminas\View\Renderer\PhpRenderer and RendererInterface)
+ * - ViewPhpRendererStrategy (also aliased to Laminas\View\Strategy\PhpRendererStrategy)
+ * - View (also aliased to Laminas\View\View)
+ * - DefaultRenderingStrategy (also aliased to Laminas\Mvc\View\Http\DefaultRenderingStrategy)
+ * - ExceptionStrategy (also aliased to Laminas\Mvc\View\Http\ExceptionStrategy)
+ * - RouteNotFoundStrategy (also aliased to Laminas\Mvc\View\Http\RouteNotFoundStrategy and 404Strategy)
  * - ViewModel
  */
 class ViewManager extends AbstractListenerAggregate
