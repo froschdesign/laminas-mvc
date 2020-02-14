@@ -4,15 +4,15 @@
     "license": "BSD-3-Clause",
     "keywords": [
         "laminas",
-        "laminasframwork",
+        "laminas",
         "mvc"
     ],
-    "homepage": "https://laminasframwork.dev",
+    "homepage": "https://laminas.dev",
     "support": {
-        "docs": "https://docs.laminasframwork.dev/laminas-mvc/",
-        "issues": "https://github.com/laminasframwork/laminas-mvc/issues",
-        "source": "https://github.com/laminasframwork/laminas-mvc",
-        "rss": "https://github.com/laminasframwork/laminas-mvc/releases.atom",
+        "docs": "https://docs.laminas.dev/laminas-mvc/",
+        "issues": "https://github.com/laminas/laminas-mvc/issues",
+        "source": "https://github.com/laminas/laminas-mvc",
+        "rss": "https://github.com/laminas/laminas-mvc/releases.atom",
         "chat": "https://laminas.dev/chat",
         "forum": "https://discourse.laminas.dev"
     },
